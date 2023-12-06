@@ -23,7 +23,7 @@ const fechaVencimiento1 = (d,m,a) => new Date(a +"-"+ m +"-"+ d).getTime();
 const diasPlazo = (fV,fH) => parseInt((fV - fH)/(1000*60*60*24));
  
 //Función que calcula los intereses con los días de plazo y la tasa
-const intereses = (dias,tasa) => dias * tasa ;
+const intereses = (dias,tasa) => dias * tasa;
 
 let descripcionTipoPf,interesPorTipoPF,continuar,opcionCorrecta;
 
@@ -45,15 +45,15 @@ do {
         opcionCorrecta = true;
         switch (plazoFijoTipo) {
             case 1:
-                interesPorTipoPF = intereses(diasPlazo(fechaVencimiento1(diaV,mesV,anioV),FECHAHOY1),TASADIARIABCRA);
+                interesPorTipoPF = ((intereses(diasPlazo(fechaVencimiento1(diaV,mesV,anioV),FECHAHOY1),TASADIARIABCRA) * importePlazoFijo)/100).toFixed(2);
                 descripcionTipoPf = " 1- $ PF Regulado BCRA (133%)";
                 break;
             case 2:
-                interesPorTipoPF = intereses(diasPlazo(fechaVencimiento1(diaV,mesV,anioV),TASADIARIATC$),TASADIARIATC$);
+                interesPorTipoPF = ((intereses(diasPlazo(fechaVencimiento1(diaV,mesV,anioV),FECHAHOY1),TASADIARIATC$) * importePlazoFijo)/100).toFixed(2);
                 descripcionTipoPf = " 2- $ PF Tradicional Clientes (126%)";
                 break;
             case 3:    
-                interesPorTipoPF = intereses(diasPlazo(fechaVencimiento1(diaV,mesV,anioV),TASADIARIATCU$$),TASADIARIATCU$$);
+                interesPorTipoPF = ((intereses(diasPlazo(fechaVencimiento1(diaV,mesV,anioV),FECHAHOY1),TASADIARIATCU$$) * importePlazoFijo)/100).toFixed(2);
                 descripcionTipoPf = " 3- U$$ PF Tradicional Clientes (0.10%)";
                 break
             default:
